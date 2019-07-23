@@ -23,7 +23,7 @@ as a parameter, the team should take the name of the position. Result robots
 teams must beat the list of employee skills. For writing logic, use services.
 	startup example:
 	
-php bin/console company: employee programmer 
+_php bin/console company: employee programmer_ 
 
 On framework Laravel:
         
@@ -39,7 +39,7 @@ the output should get like:
 implementation:
 command: 
 
-php bin/console employee: can programmer writeCode 
+_php bin/console employee: can programmer writeCode_ 
 
 On framework Laravel:
         
