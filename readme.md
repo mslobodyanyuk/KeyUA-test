@@ -48,7 +48,9 @@ On framework Laravel:
 	result:
 		true
 
-command: php bin/console employee: can programmer draw 
+command: 
+
+_php bin/console employee: can programmer draw_ 
 		
 On framework Laravel:
         
