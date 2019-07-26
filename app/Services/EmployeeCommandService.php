@@ -8,13 +8,15 @@
 
 namespace App\Services;
 
-use App\Employee;
+use Illuminate\Support\Facades\DB;
 
 class EmployeeCommandService
 {
-    public function make(Employee $employee, $specialty, $action)
-    {
-        $employee->canDoAction($specialty, $action);
+    public function canDoAction($specialty, $action){
+
+        $canDoAction = DB::table('employees')->where('specialty', $specialty)->value($action);
+
+        return $canDoAction = (!empty($canDoAction)) ? 'true' : 'false';
     }
 
 }

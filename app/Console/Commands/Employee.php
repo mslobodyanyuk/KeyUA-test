@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\Employee as employeeModel;
 use App\Services\EmployeeCommandService;
 use Illuminate\Console\Command;
 
@@ -41,8 +40,8 @@ class Employee extends Command
      *
      * @return mixed
      */
-    public function handle(EmployeeModel $employee)
+    public function handle()
     {
-        $this->employeeCommandService->make($employee, $this->argument('specialty'), $this->argument('action'));
+        $this->info($this->employeeCommandService->canDoAction($this->argument('specialty'), $this->argument('action')));
     }
 }

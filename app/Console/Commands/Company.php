@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\Employee;
 use Illuminate\Console\Command;
 use App\Services\CompanyCommandService;
 
@@ -42,10 +41,18 @@ class Company extends Command
      * Execute the console command.
      *
      * @return mixed
+     *
+     *
+     *
      */
-    public function handle(Employee $employee)
+
+    public function handle()
     {
-        $this->companyCommandService->make($employee, $this->argument('specialty'));
+        $skills = $this->companyCommandService->getSkills($this->argument('specialty'));
+
+        foreach ($skills as $skill) {
+            $this->info(" - ". $skill );
+        }
     }
 
 }
