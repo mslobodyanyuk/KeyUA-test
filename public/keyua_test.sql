@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 23, 2019 at 07:36 PM
+-- Generation Time: Aug 01, 2019 at 08:06 PM
 -- Server version: 5.7.26-0ubuntu0.16.04.1
 -- PHP Version: 7.2.16-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -28,7 +28,6 @@ USE `keyua_test`;
 -- Table structure for table `categories`
 --
 
-DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL
@@ -49,37 +48,9 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employees`
---
-
-DROP TABLE IF EXISTS `employees`;
-CREATE TABLE `employees` (
-  `id` int(11) NOT NULL,
-  `specialty` varchar(10) NOT NULL,
-  `writeCode` varchar(25) DEFAULT NULL,
-  `testCode` varchar(25) DEFAULT NULL,
-  `communicateWithManager` varchar(25) DEFAULT NULL,
-  `draw` varchar(25) DEFAULT NULL,
-  `setTasks` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `employees`
---
-
-INSERT INTO `employees` (`id`, `specialty`, `writeCode`, `testCode`, `communicateWithManager`, `draw`, `setTasks`) VALUES
-(1, 'programmer', 'writeCode', 'testCode', 'communicateWithManager', '', ''),
-(2, 'designer', '', '', 'communicateWithManager', 'draw', ''),
-(3, 'tester', '', 'testCode', 'communicateWithManager', '', 'setTasks'),
-(4, 'manager', '', '', '', '', 'setTasks');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `migration_versions`
 --
 
-DROP TABLE IF EXISTS `migration_versions`;
 CREATE TABLE `migration_versions` (
   `version` varchar(14) COLLATE utf8mb4_unicode_ci NOT NULL,
   `executed_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)'
@@ -91,7 +62,6 @@ CREATE TABLE `migration_versions` (
 -- Table structure for table `products`
 --
 
-DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(150) NOT NULL,
@@ -162,10 +132,79 @@ INSERT INTO `products` (`id`, `name`, `category_id`, `subcategory_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `skills`
+--
+
+CREATE TABLE `skills` (
+  `id` int(11) NOT NULL,
+  `skill` varchar(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `skills`
+--
+
+INSERT INTO `skills` (`id`, `skill`) VALUES
+(1, 'writeCode'),
+(2, 'testCode'),
+(3, 'communicateWithManager'),
+(4, 'draw'),
+(5, 'setTasks');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `skill_specialty`
+--
+
+CREATE TABLE `skill_specialty` (
+  `id` int(11) NOT NULL,
+  `specialty_id` int(11) NOT NULL,
+  `skill_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `skill_specialty`
+--
+
+INSERT INTO `skill_specialty` (`id`, `specialty_id`, `skill_id`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 2, 3),
+(5, 2, 4),
+(6, 3, 2),
+(7, 3, 3),
+(8, 3, 5),
+(9, 4, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `specialties`
+--
+
+CREATE TABLE `specialties` (
+  `id` int(11) NOT NULL,
+  `specialty` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `specialties`
+--
+
+INSERT INTO `specialties` (`id`, `specialty`) VALUES
+(1, 'programmer'),
+(2, 'designer'),
+(3, 'tester'),
+(4, 'manager');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subcategories`
 --
 
-DROP TABLE IF EXISTS `subcategories`;
 CREATE TABLE `subcategories` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
@@ -204,12 +243,6 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `employees`
---
-ALTER TABLE `employees`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `migration_versions`
 --
 ALTER TABLE `migration_versions`
@@ -219,6 +252,24 @@ ALTER TABLE `migration_versions`
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `skills`
+--
+ALTER TABLE `skills`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `skill_specialty`
+--
+ALTER TABLE `skill_specialty`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `specialties`
+--
+ALTER TABLE `specialties`
   ADD PRIMARY KEY (`id`);
 
 --
