@@ -8,22 +8,16 @@
 
 namespace App\Services;
 
-use Illuminate\Support\Facades\DB;
+use App\Specialty;
 
 class CompanyCommandService
 {
-
     public function getSkills($specialty){
 
-        $employees = DB::table('employees')->select('writeCode','testCode','communicateWithManager','draw','setTasks')->where('specialty', $specialty)->first();
+        $specialty_id = Specialty::where('specialty', $specialty)->value('id');
+        $specialty = Specialty::find($specialty_id);
 
-        $employeeSkills = json_decode(json_encode($employees), True);   //$employeeSkills = $employees[0];
-
-        foreach ($employeeSkills as $skill) {
-            if (!empty($skill)) {
-                $skills[] = $skill;
-            }
-        }
+        $skills = $specialty->getCollectionSkills();
 
         return $skills;
     }

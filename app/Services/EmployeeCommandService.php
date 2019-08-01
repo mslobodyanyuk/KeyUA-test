@@ -8,15 +8,20 @@
 
 namespace App\Services;
 
-use Illuminate\Support\Facades\DB;
+use App\Specialty;
+
 
 class EmployeeCommandService
 {
+
     public function canDoAction($specialty, $action){
 
-        $canDoAction = DB::table('employees')->where('specialty', $specialty)->value($action);
+        $specialty_id = Specialty::where('specialty', $specialty)->value('id');
+        $specialty = Specialty::find($specialty_id);
 
-        return $canDoAction = (!empty($canDoAction)) ? 'true' : 'false';
+        $skills = $specialty->getCollectionSkills();
+
+        return $canDoAction = (in_array($action, $skills)) ? 'true' : 'false';
     }
 
 }

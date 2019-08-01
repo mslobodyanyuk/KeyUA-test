@@ -210,6 +210,14 @@ Useful links:
 
 <https://m.dotdev.co/design-pattern-service-layer-with-laravel-5-740ff0a7b65f>
 
+#### Eloquent: Relationships
+
+[#Many To Many](https://laravel.com/docs/5.4/eloquent-relationships#many-to-many)
+
+#### Array Functions
+
+[in_array](http://www.php.su/in_array)
+
 #### MySQL
 
 * An empty list of IN clause options in MySQL
