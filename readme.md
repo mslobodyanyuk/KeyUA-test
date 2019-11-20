@@ -137,14 +137,7 @@ _edit hosts file_
  
 `hosts` file, `httpd.conf`.
 
-
-4. make a new database - keyua_test( utf8_general_ci encoding ) for example 
-
-Or just download a database dump located in the /public folder
-( - database dump contains CREATE/USE DATABASE statement):
-
-`keyua_test.sql`
-
+4. make a new database - keyua_test( utf8_general_ci encoding ), for example 
 
 5. database settings in `.env` file:
 
@@ -154,14 +147,25 @@ DB_USERNAME = root
 DB_PASSWORD = your_password
 ```
 
+6. starting migrations
+
+`php artisan migrate`
+
+7. starting seeding
+
+`php artisan db:seed`
+
 MySQL
 
-- Database schema and SQL-queries.
+- Database dump for MySQL-task. Located in the /public folder in a file:	
 
-Located in the /public folder in a file:
+`MySQLkeyua_test.txt`
+
+Download a database dump( - database dump contains CREATE/USE DATABASE statement):
+
+- Database schema and SQL-queries. Located in the /public folder in a file:
 
 `Database schema and SQL-queries.txt`
-	
 
 Useful links:
 =============
