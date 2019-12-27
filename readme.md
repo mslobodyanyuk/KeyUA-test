@@ -240,13 +240,13 @@ For Deploy on Docker you must have the structure folders and files:
                             |.env - file with paths environment variables
                             |docker-compose.yml - file with managing images services and their settings
                             |databases/ - folder that consist database locally
-                            |KeyUA-test - folder with a project which appeared after cloning from github
+                            |KeyUA-test/ - folder with a project which appeared after cloning from github
 
 * In the new terminal:
 
 `cd /var/www/Docker/youtube`
 
-* Cloned a project frоm github:
+* Cloned a project with github's:
 
 `git clone https://github.com/mslobodyanyuk/KeyUA-test.git`
 
