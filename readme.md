@@ -227,3 +227,98 @@ Useful links:
 * An empty list of IN clause options in MySQL
 
 <http://qaru.site/questions/200851/empty-in-clause-parameter-list-in-mysql>
+
+Deploy on Docker( Ubuntu ).
+===========================
+
+For Deploy on Docker you must have the structure folders and files:
+
+`/var/www/Docker/youtube/`
+
+                            |web/					
+                            |	 Dockerfile `- file for create an image with php7.2-apache version`
+                            |.env `- file with paths environment variables`
+                            |docker-compose.yml `- file with managing images services and their settings`
+                            |databases/ `- folder that consist database locally`	
+                            |KeyUA-test `- folder with a project which appeared after cloning from github`
+
+* In the new terminal:
+
+`cd /var/www/Docker/youtube`
+
+* Cloned a project frоm github:
+
+`git clone https://github.com/mslobodyanyuk/KeyUA-test.git`
+
+* Create an container:
+
+`docker-compose up --build`
+
+_All services started + the vendor folder appeared in the Laravel project._
+
+* In another new terminal:
+ 
+`cd /var/www/Docker/youtube`
+
+* To enter the service inside the container:
+
+`docker-compose exec web bash`
+
+_To see the files of our project (- to check whether it enters our container):_
+
+`ls -l`
+
+_If there is no .env-file of laravel-project you can also take in Docker structure folder. Rename copy.env to .env_
+
+* Generate the application key:
+
+`php artisan key:generate`
+
+* In the browser in the address bar -> `127.0.0.1:6080`
+
+- Then Login and Create database in adminer named, for example, `keyua_test` -> choose encoding `utf8_general_ci`:
+
+```
+	MySQL >> db	 
+	        ->Create database
+```
+		
+* Configure the .env file of the Laravel project:
+
+```php
+DB_HOST=db
+DB_DATABASE = keyua_test
+DB_USERNAME = root
+DB_PASSWORD = your_password
+```
+	
+_Return to the container terminal:_
+
+* run migrations
+
+`php artisan migrate`
+			
+* run Seeders
+
+`php artisan db:seed`
+
+* Testing project, for example:
+
+`php artisan company:employee programmer`
+
+`php artisan employee:can programmer writeCode`
+
+_Exit container:_
+
+`exit`
+
+_Stop container:_
+
+`Ctrl+C`
+
+Useful links:
+=============
+
+[The easiest and smallest laravel launch in docker | laravel installation in docker | #10)](https://www.youtube.com/watch?v=TumfGqUf39U&list=PLD5U-C5KK50XMCBkY0U-NLzglcRHzOwAg&index=13&t=164s)
+
+[Docker commands](https://habr.com/ru/company/flant/blog/336654/)
