@@ -286,7 +286,7 @@ _If there is no .env-file of laravel-project you can also take in Docker structu
 * Configure the .env file of the Laravel project:
 
 ```php
-DB_HOST=db
+DB_HOST = db
 DB_DATABASE = keyua_test
 DB_USERNAME = root
 DB_PASSWORD = your_password
