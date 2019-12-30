@@ -161,7 +161,7 @@ MySQL
 
 `MySQLkeyua_test.txt`
 
-Download a database dump( - database dump contains CREATE/USE DATABASE statement):
+Download a database dump( - database dump contains CREATE/USE DATABASE statement ):
 
 - Database schema and SQL-queries. Located in the /public folder in a file:
 
@@ -231,16 +231,16 @@ Useful links:
 Deploy on Docker( Ubuntu ).
 ===========================
 
-For Deploy on Docker you must have the structure folders and files:
+For Deploy on Docker you must have the structure folders and files( - folder Docker in the root of project ):
 
 `/var/www/Docker/youtube/`
 
                             |web/					
-                            |    Dockerfile - file for create an image with php7.2-apache version
-                            |.env - file with paths environment variables
+                            |    Dockerfile     - file for create an image with php7.2-apache version
+                            |.env               - file with paths environment variables
                             |docker-compose.yml - file with managing images services and their settings
-                            |databases/ - folder that consist database locally
-                            |KeyUA-test/ - folder with a project which appeared after cloning from github
+                            |databases/         - folder that consist database locally
+                            |KeyUA-test/        - folder with a project which appeared after cloning from github
 
 * In the new terminal:
 
@@ -319,6 +319,6 @@ _Stop container:_
 Useful links:
 =============
 
-[The easiest and smallest laravel launch in docker | laravel installation in docker | #10)](https://www.youtube.com/watch?v=TumfGqUf39U&list=PLD5U-C5KK50XMCBkY0U-NLzglcRHzOwAg&index=13&t=164s)
+[The easiest and smallest laravel launch in docker | laravel installation in docker | #10](https://www.youtube.com/watch?v=TumfGqUf39U&list=PLD5U-C5KK50XMCBkY0U-NLzglcRHzOwAg&index=13&t=164s)
 
 [Docker commands](https://habr.com/ru/company/flant/blog/336654/)
