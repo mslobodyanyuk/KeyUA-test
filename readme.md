@@ -231,16 +231,17 @@ Useful links:
 Deploy on Docker( Ubuntu ).
 ===========================
 
-For Deploy on Docker you must have the structure folders and files( - folder Docker in the root of project ):
+For Deploy on Docker you must have the structure folders and files( - folder Docker put in the root of project ):
 
-`/var/www/Docker/youtube/`
+`/var/www/Docker/`
 
-                            |web/					
-                            |    Dockerfile     - file for create an image with php7.2-apache version
-                            |.env               - file with paths environment variables
-                            |docker-compose.yml - file with managing images services and their settings
-                            |databases/         - folder that consist database locally
-                            |KeyUA-test/        - folder with a project which appeared after cloning from github
+                   youtube/                
+                           |web/					
+                           |    Dockerfile     - file for create an image with php7.2-apache version
+                           |.env               - file with paths environment variables
+                           |docker-compose.yml - file with managing images services and their settings
+                           |databases/         - folder that consist database locally
+                           |KeyUA-test/        - folder with a project which appeared after cloning from github
 
 * In the new terminal:
 
