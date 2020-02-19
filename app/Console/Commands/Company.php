@@ -23,7 +23,8 @@ class Company extends Command
      */
     protected $description = 'The list of employee skills';
 
-    protected $specialty;
+    //protected $specialty;
+    static public $specialty;
 
     /**
      * Create a new command instance.
@@ -41,14 +42,10 @@ class Company extends Command
      * Execute the console command.
      *
      * @return mixed
-     *
-     *
-     *
      */
-
     public function handle()
     {
-        $skills = $this->companyCommandService->getSkills($this->argument('specialty'));
+        $skills = $this->companyCommandService->getSkillsBySpecialtyName($this->argument('specialty'));
 
         foreach ($skills as $skill) {
             $this->info(" - ". $skill );

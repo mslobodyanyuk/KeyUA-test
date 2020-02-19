@@ -8,18 +8,12 @@
 
 namespace App\Services;
 
-use App\Specialty;
-
-
 class EmployeeCommandService
 {
 
-    public function canDoAction($specialty, $action){
+    static public function canDoAction($specialty, $action){
 
-        $specialty_id = Specialty::where('specialty', $specialty)->value('id');
-        $specialty = Specialty::find($specialty_id);
-
-        $skills = $specialty->getCollectionSkills();
+        $skills = CompanyCommandService::getSkillsBySpecialtyName($specialty);
 
         return $canDoAction = (in_array($action, $skills)) ? 'true' : 'false';
     }

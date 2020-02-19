@@ -12,12 +12,12 @@ use App\Specialty;
 
 class CompanyCommandService
 {
-    public function getSkills($specialty){
+    static public function getSkillsBySpecialtyName($specialty){
 
         $specialty_id = Specialty::where('specialty', $specialty)->value('id');
         $specialty = Specialty::find($specialty_id);
 
-        $skills = $specialty->getCollectionSkills();
+        $skills = $specialty->getSpecialtySkills();
 
         return $skills;
     }

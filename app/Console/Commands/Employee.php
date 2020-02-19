@@ -16,12 +16,15 @@ class Employee extends Command
      */
     protected $signature = 'employee:can {specialty : specialty of position} {action : certain action of employee};';
 
+    static public $specialty;//added
+
+    static public $skill;//added
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Match specialty skills to the action';
 
     /**
      * Create a new command instance.

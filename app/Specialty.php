@@ -19,7 +19,7 @@ class Specialty extends Model
         return $this->belongsToMany('App\Skill');
     }
 
-    public function getCollectionSkills(){
+    public function getSpecialtySkills(){
 
         foreach ($this->skills as $specialtySkills) {
             $skills[] = $specialtySkills->skill;
